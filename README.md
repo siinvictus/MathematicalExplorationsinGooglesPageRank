@@ -1,27 +1,29 @@
-Purpose: Explore and understand mathematically Google's page rank algorithm. 
+# Understanding Google's PageRank: The Linear Algebra Behind It
 
-Go through the files in the following manner: 
-1. See pdf GoogleVersionfixed for the description on the algorithms, the mathematical background and questions.
-2. See the second pdf BashllariQaderi_UnderstandingGooglesPageRank on our solutions on the questions presented in the first document.
-3. See the the .ipynb file for some of the exercises that are not mathematical proofs but require the solution of real examples.
+Homework for **Computational Linear Algebra** (MSc Data Science and Engineering, Politecnico di Torino course).
+Authors: Silva Bashllari and Baharak Qaderi.
 
+## What this is
 
+Worked solutions to the 17 exercises in Kurt Bryan and Tanya Leise's paper [googleFinalVersionFixed.pdf]
 
+PageRank ranks web pages by the eigenvector of a column-stochastic link matrix associated with eigenvalue 1. The exercises explore when that ranking is well defined and how to compute it.
 
+## Topics covered
 
+- **Eigenvector formulation:** ranking pages by solving Ax = x, and how rankings change when pages and links are added
+- **Disconnected subwebs:** showing that the eigenspace for eigenvalue 1 has dimension equal to the number of subwebs, so the ranking is not unique
+- **Dangling nodes:** pages with no outgoing links, and the Perron eigenvector of the resulting substochastic matrix
+- **The modified matrix** M = (1 − m)A + mS (with m = 0.15), which guarantees a unique, positive ranking vector
+- **Power method:** convergence of Mᵏx₀ to the ranking vector, and how the second-largest eigenvalue |λ₂| sets the convergence rate
+- **Choosing m:** the trade-off between faster convergence and staying faithful to the web's link structure
 
-Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+## Files
 
-This work is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License. 
-To view a copy of this license, visit http://creativecommons.org/licenses/by-nc/4.0/ or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+- `BashllariQaderi_UnderstandingGooglesPageRank.pdf`: written solutions, including proofs and derivations
+- `BashllariQaderiPageRank.ipynb`: numerical exercises in Python (NumPy, SciPy), including eigenvector computations and power-method convergence
 
-You are free to:
-- Share — copy and redistribute the material in any medium or format
-- Adapt — remix, transform, and build upon the material
+## License
 
-Under the following terms:
-- Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
-- NonCommercial — You may not use the material for commercial purposes.
-
-No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
-
+Our solutions and code are licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+The exercises themselves are from Bryan and Leise (2006) and remain under their original copyright.
